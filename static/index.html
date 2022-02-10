@@ -34,7 +34,8 @@
             });
 
             const apiResp = await response.json();
-            if (apiResp.data.matches) {
+            console.log(apiResp.data.matches[0].json)
+            if (apiResp.data.matches[0].res) {
                 alert("plagiarism found!");
             } else {
                 alert("no plagiarism");

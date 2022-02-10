@@ -68,10 +68,21 @@ func (rb analyzeReqBody) Validate() error {
 type match struct {
 	Input     matchDetails `json:"input"`
 	Reference matchDetails `json:"ref"`
+	Json 	  jsonRes 	   `json:"json"`
+	Result    bool 	       `json:"res"`
 }
 
 type matchDetails struct {
 	Text     string `json:"text"`
 	StartIdx int    `json:"start_idx"`
 	EndIdx   int    `json:"end_idx"`
+}
+
+type jsonRes struct {
+	TextRef     string `json:"text_ref"`
+	TextInput   string `json:"text_input"`
+	TextComp    string `json:"text_comp"`
+	ErrRef      error  `json:"err_ref"`
+	ErrInput    error  `json:"err_input"`
+	ErrComp     error  `json:"err_comp"`
 }
